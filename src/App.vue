@@ -1,6 +1,7 @@
 <script setup>
 import Membre from './components/Membre.vue'
 import Pret from './components/Pret.vue'
+import Livres from './components/Livre.vue'
 </script>
 
 <template>
@@ -16,9 +17,9 @@ import Pret from './components/Pret.vue'
           <li class="nav-item">
             <router-link class="nav-link" to="/pret">Prêts</router-link>
           </li>
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <router-link class="nav-link" to="/livre">Livres</router-link>
-          </li> -->
+          </li>
         </ul>
       </div>
     </nav>
@@ -26,11 +27,6 @@ import Pret from './components/Pret.vue'
     <!-- Affiche le composant correspondant à la route -->
     <router-view></router-view>
   </div>
-  <!-- <Membre />
-  <Pret /> -->
-   
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
