@@ -40,7 +40,7 @@
       </div>
       <div class="col-auto">
         <button type="submit" class="btn btn-sm mt-4 btn-primary">
-          Modifier
+          Enregistrer
         </button>
         <button type="button" class="btn btn-sm mt-4 btn-secondary" @click="cancel">
           Annuler
