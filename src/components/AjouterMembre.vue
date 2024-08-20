@@ -8,7 +8,7 @@
           class="form-control"
           id="prenom"
           v-model="prenom"
-        />
+     required   />
       </div>
       <div class="col-sm-3">
         <label for="nom">Nom</label>
@@ -17,17 +17,18 @@
           class="form-control"
           id="nom"
           v-model="nom"
-        />
+    required    />
       </div>
       <div class="col-sm-2">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          v-model="email"
-        />
-      </div>
+       <label for="date">Date d'inscription</label>
+       <input
+        type="date"
+         class="form-control"
+         id="date"
+         v-model="dateInscription"
+    required   />
+    </div>
+
       <div class="col-sm-2">
         <label for="tel">Téléphone</label>
         <input
@@ -36,7 +37,7 @@
           id="tel"
           v-model="telephone"
           
-        />
+  required      />
       </div>
 
       <div class="col-auto">
@@ -54,20 +55,20 @@ const emit = defineEmits(["onAdd"]);
 
 const prenom = ref("");
 const nom = ref("");
-const email = ref("");
+const dateInscription = ref("");
 const telephone = ref("");
 const onSubmit = () => {
-  emit("onAdd", prenom.value, nom.value, email.value, telephone.value);
+  emit("onAdd", prenom.value, nom.value, dateInscription.value, telephone.value);
 
   prenom.value = "";
   nom.value = "";
-  email.value = "";
+  dateInscription.value = "";
   telephone.value = "";
 };
 const edit = (membre) => {
   prenom.value = membre.prenom;
   nom.value = membre.nom;
-  email.value = membre.email;
+  dateInscription.value = membre.dateInscription;
   telephone.value = membre.telephone;
 };
 

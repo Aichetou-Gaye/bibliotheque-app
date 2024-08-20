@@ -1,45 +1,94 @@
 <template>
-  <div>
-    <h1 class="text-center">Gestion des Membres</h1>
-    <AjouterMembre class="border-bottom pb-4" @on-add="add" ref="formComponent"/>
-    <ListeMembre :membres="membres" class="mt-4" @on-remove="remove"  @on-edit="edit" />
-    <ModifierMembre  />
+  <div class="container mt-4">
+    <form class="row gx-3 gy-2 align-items-center" @submit.prevent="onSubmit">
+      <div class="col-sm-2">
+        <label for="id_pret" class="form-label">ID Prêt</label>
+        <input
+          type="number"
+          class="form-control"
+          id="id_pret"
+          v-model.number="idPret"
+        required/>
+      </div>
+      <div class="col-sm-2">
+        <label for="date_pret" class="form-label">Date du prêt</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date_pret"
+          v-model="datePret"
+      required  />
+      </div>
+      <div class="col-sm-2">
+        <label for="date_retour_prevue" class="form-label">Date de retour prévue</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date_retour_prevue"
+          v-model="dateRetourPrevue"
+     required   />
+      </div>
+      <div class="col-sm-2">
+        <label for="livre_id" class="form-label">ID Livre</label>
+        <input
+          type="number"
+          class="form-control"
+          id="livre_id"
+          v-model.number="livreId"
+     required   />
+      </div>
+      <div class="col-sm-2">
+        <label for="membre_id" class="form-label">ID Membre</label>
+        <input
+          type="number"
+          class="form-control"
+          id="membre_id"
+          v-model.number="membreId"
+     required   />
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mt-4">
+          Ajouter
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import AjouterMembre from './AjouterMembre.vue';
-import ListeMembre from './ListeMembre.vue';
-import ModifierMembre from './ModifierMembre.vue';
+import { ref, defineExpose } from "vue";
 
-const membres = ref([
-        { prenom: 'Jean', nom: 'Dupont', email: 'jean.dupont@example.com', telephone: '0601020304' },
-        { prenom: 'Marie', nom: 'Durand', email: 'marie.durand@example.com', telephone: '0602030405' },
-        { prenom: 'Pierre', nom: 'Moreau', email: 'pierre.moreau@example.com', telephone: '0603040506' },
-        { prenom: 'Lucie', nom: 'Lefevre', email: 'lucie.lefevre@example.com', telephone: '0604050607' },
-        { prenom: 'Sophie', nom: 'Martin', email: 'sophie.martin@example.com', telephone: '0605060708' },
-      ]);
+const emit = defineEmits(["onAdd"]);
 
-const formComponent = ref();
+const idPret = ref("");
+const datePret = ref("");
+const dateRetourPrevue = ref("");
+const livreId = ref("");
+const membreId = ref("");
 
-const add = (prenom, nom, email, telephone) => {
-  membres.value.push({
-    prenom,
-    nom,
-    email,
-    telephone
-  });
-  console.log("reception evenement");
+const onSubmit = () => {
+  emit("onAdd", idPret.value, datePret.value, dateRetourPrevue.value, livreId.value, membreId.value);
   
-} 
+  idPret.value = "";
+  datePret.value = "";
+  dateRetourPrevue.value = "";
+  livreId.value = "";
+  membreId.value = "";
+};
 
-const remove = (index) => {
-  membres.value.splice(index, 1);
-}
+const edit = (pret) => {
+  idPret.value = pret.id_pret;
+  datePret.value = pret.date_pret;
+  dateRetourPrevue.value = pret.date_retour_prevue;
+  livreId.value = pret.livre_id;
+  membreId.value = pret.membre_id;
+};
 
-const edit = (index) => {
-  const membre = membres.value[index];
-  formComponent.value.edit(membre);
-}
+defineExpose({
+  edit,
+});
 </script>
+
+<style scoped>
+/* Ajoutez des styles ici si nécessaire */
+</style>

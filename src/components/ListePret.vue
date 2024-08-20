@@ -1,66 +1,61 @@
 <template>
-  
-  <div>
-    <table class="table table-bordered table-sm">
+  <div class="container mt-4">
+    <table class="table table-bordered table-hover table-sm">
       <thead>
         <tr>
-          <!-- <th scope="col">#</th> -->
-          <th scope="col">Prénom</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Email</th>
-          <th scope="col">Téléphone</th>
-          <th scope="col">Action</th>
+          <th>#</th>
+          <th>ID Prêt</th>
+          <th>Date du prêt</th>
+          <th>Date de retour prévue</th>
+          <th>ID Livre</th>
+          <th>ID Membre</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(membre, index) in membres" :key="index">
-          <!-- <td>{{ index + 1 }}</td> -->
-          <td>{{ membre.prenom }}</td>
-          <td>{{ membre.nom }}</td>
-          <td>{{ membre.email }}</td>
-          <td>{{ membre.telephone }}</td>
-          
+        <tr v-for="(pret, index) in prets" :key="index">
+          <td>{{ index + 1 }}</td>
+          <td>{{ pret.id_pret }}</td>
+          <td>{{ pret.date_pret }}</td>
+          <td>{{ pret.date_retour_prevue }}</td>
+          <td>{{ pret.livre_id }}</td>
+          <td>{{ pret.membre_id }}</td>
           <td>
-            <button class="btn btn-xs btn-danger" @click="destroy(index)">
-              x
+            <button class="btn btn-danger btn-sm" @click="destroy(index)">
+              Supprimer
             </button>
-            <button class="btn btn-xs btn-secondary" @click="edit(index)">
-              -
+            <button class="btn btn-secondary btn-sm" @click="edit(index)">
+              Modifier
             </button>
           </td>
         </tr>
       </tbody>
-      <!-- <tfoot>
-        <tr>
-          <td colspan="5" class="text-center">Total</td>
-          <td>{{ total }}</td>
-        </tr>
-      </tfoot> -->
     </table>
   </div>
 </template>
 
-
 <script setup>
-import { computed } from "vue";
+import { defineEmits, defineProps } from "vue";
+
 const emit = defineEmits(["onRemove", "onEdit"]);
 
 const props = defineProps({
-  membres: {
+  prets: {
     type: Array,
     required: true,
     default: [],
   },
 });
 
-// const total = computed(() =>
-//   props.products.reduce((acc, item) => acc + item.prix * item.quantite, 0)
-// );
-
 const destroy = (index) => {
   emit("onRemove", index);
 };
+
 const edit = (index) => {
   emit("onEdit", index);
 };
 </script>
+
+<style scoped>
+/* Ajoutez des styles ici si nécessaire */
+</style>

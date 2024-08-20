@@ -1,13 +1,13 @@
 <template>
   
   <div>
-    <table class="table table-bordered table-sm">
+    <table class=" table table-bordered table-sm">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Prénom</th>
           <th scope="col">Nom</th>
-          <th scope="col">Email</th>
+          <th scope="col">Date d'inscription</th>
           <th scope="col">Téléphone</th>
           <th scope="col">Action</th>
         </tr>
@@ -17,7 +17,7 @@
           <td>{{ index + 1 }}</td>
           <td>{{ membre.prenom }}</td>
           <td>{{ membre.nom }}</td>
-          <td>{{ membre.email }}</td>
+          <td>{{ membre.dateInscription }}</td>
           <td>{{ membre.telephone }}</td>
           
           <td>
