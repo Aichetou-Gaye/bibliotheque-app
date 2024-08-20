@@ -5,9 +5,9 @@ import Livres from './components/Livre.vue'
 </script>
 
 <template>
-<div>
+  <div class="container">
     <!-- Barre de navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand bg-success text-white text-center">
       <a class="navbar-brand" href="#">Bibliothèque</a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">

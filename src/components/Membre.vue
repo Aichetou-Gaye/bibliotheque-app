@@ -1,13 +1,9 @@
 <template>
   <div>
-    <h1 class="text-center">Gestion des Membres</h1>
-    <AjouterMembre class="border-bottom pb-4" @on-add="add" ref="formComponent"/>
-    <ListeMembre :membres="membres" class="mt-4" @on-remove="remove" @on-edit="edit"/>
-    <ModifierMembre 
-      :membre="selectedMembre"
-      @on-update="update"
-      @on-cancel="cancel"
-    />
+    <h1 class="text-center">Gestion des Membres :</h1>
+    <AjouterMembre class="border-bottom pb-4" @on-add="add" ref="formComponent" />
+    <ListeMembre :membres="membres" class="mt-4" @on-remove="remove" @on-edit="edit" />
+    <ModifierMembre :membre="selectedMembre" @on-update="update" @on-cancel="cancel" />
   </div>
 </template>
 
@@ -18,11 +14,11 @@ import ListeMembre from './ListeMembre.vue';
 import ModifierMembre from './ModifierMembre.vue';
 
 const membres = ref([
-    { prenom: 'Mohamed', nom: 'Ndiaye', dateInscription: '2022-01-01', telephone: '48121450' },
-    { prenom: 'Sidi', nom: 'Fall', dateInscription: '2023-02-02', telephone: '41121450' },
-    { prenom: 'Oumou', nom: 'Sy', dateInscription: '2015-03-03', telephone: '27121124' },
-    { prenom: 'Aichetou', nom: 'Gaye', dateInscription: '2018-04-04', telephone: '22121412' },
-    { prenom: 'Issa', nom: 'Fall', dateInscription: '2024-05-05', telephone: '37121124' },
+  { prenom: 'Mohamed', nom: 'Ndiaye', dateInscription: '2022-01-01', telephone: '48121450' },
+  { prenom: 'Sidi', nom: 'Fall', dateInscription: '2023-02-02', telephone: '41121450' },
+  { prenom: 'Oumou', nom: 'Sy', dateInscription: '2015-03-03', telephone: '27121124' },
+  { prenom: 'Aichetou', nom: 'Gaye', dateInscription: '2018-04-04', telephone: '22121412' },
+  { prenom: 'Issa', nom: 'Fall', dateInscription: '2024-05-05', telephone: '37121124' },
 ]);
 
 const formComponent = ref();
@@ -46,7 +42,7 @@ const update = (updatedMembre) => {
   if (index !== -1) {
     membres.value[index] = updatedMembre;
   }
-  cancel(); // Hide the ModifierMembre component
+  cancel();
 };
 
 const cancel = () => {

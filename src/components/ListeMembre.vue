@@ -1,7 +1,7 @@
 <template>
   
-  <div>
-    <table class=" table table-bordered table-sm">
+  <div class="container">
+    <table class="table table-bordered table-sm">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -21,28 +21,18 @@
           <td>{{ membre.telephone }}</td>
           
           <td>
-            <button class="btn btn-xs btn-danger" @click="destroy(index)">
-              x
-            </button>
-            <button class="btn btn-xs btn-secondary" @click="edit(index)">
-              -
-            </button>
+            <button class="btn btn-xs btn-danger" @click="destroy(index)"><ion-icon name="trash"></ion-icon></button>
+            <button class="btn btn-xs btn-primary" @click="edit(index)"><ion-icon name="eyedrop"></ion-icon></button>
+            <button class="btn btn-xs btn-success "><ion-icon name="eye"></ion-icon></button>
           </td>
         </tr>
       </tbody>
-      <!-- <tfoot>
-        <tr>
-          <td colspan="5" class="text-center">Total</td>
-          <td>{{ total }}</td>
-        </tr>
-      </tfoot> -->
     </table>
   </div>
 </template>
 
 
 <script setup>
-import { computed } from "vue";
 const emit = defineEmits(["onRemove", "onEdit"]);
 
 const props = defineProps({
@@ -52,10 +42,6 @@ const props = defineProps({
     default: [],
   },
 });
-
-// const total = computed(() =>
-//   props.products.reduce((acc, item) => acc + item.prix * item.quantite, 0)
-// );
 
 const destroy = (index) => {
   emit("onRemove", index);
