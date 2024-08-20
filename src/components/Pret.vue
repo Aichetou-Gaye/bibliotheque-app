@@ -3,7 +3,7 @@
     <h1 class="text-center">Gestion des Prêts</h1>
     <AjouterPret class="border-bottom pb-4" @onAdd="add" ref="formComponent"/>
     <ListePret :prets="prets" class="mt-4" @onRemove="remove" @onEdit="edit" />
-    <ModifierPret ref="modifierComponent" @onUpdate="update" @onCancel="cancel" />
+    <ModifierPret :pret = "selectedPret" @onUpdate="update" @onCancel="cancel" />
   </div>
 </template>
 
@@ -18,17 +18,11 @@ const prets = ref([
   { id_pret: 2, date_pret: '2024-08-05', date_retour_prevue: '2024-09-05', livre_id: 102, membre_id: 2 }
 ]);
 
-const formComponent = ref(null);
-const modifierComponent = ref(null);
+const formComponent = ref();
+const selectedPret = ref(null);
 
-const add = (idPret, datePret, dateRetourPrevue, livreId, membreId) => {
-  prets.value.push({
-    id_pret: idPret,
-    date_pret: datePret,
-    date_retour_prevue: dateRetourPrevue,
-    livre_id: livreId,
-    membre_id: membreId
-  });
+const add = (id_pret, date_pret, date_retour_prevue, livre_id, membre_id) => {
+  prets.value.push({ id_pret, date_pret, date_retour_prevue, livre_id, membre_id });
 };
 
 const remove = (index) => {
@@ -36,18 +30,17 @@ const remove = (index) => {
 };
 
 const edit = (index) => {
-  const pret = prets.value[index];
-  modifierComponent.value.edit(pret);
+  selectedPret.value = prets.value[index]
 };
 
 const update = (updatedPret) => {
-  const index = prets.value.findIndex(p => p.id_pret === updatedPret.id_pret);
+  const index = prets.value.findIndex(p => p.id_pret === selectedPret.value.id_pret);
   if (index !== -1) {
     prets.value[index] = updatedPret;
   }
 };
 
 const cancel = () => {
-  // Logic for handling cancellation if needed
+  selectedPret.value = null
 };
 </script>

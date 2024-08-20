@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import { createApp } from 'vue';
 import App from './App.vue';
-import router from './router'; // Importer la configuration du routeur
+import router from './router'; 
 
 createApp(App)
-  .use(router) // Utiliser Vue Router
+  .use(router)
   .mount('#app');

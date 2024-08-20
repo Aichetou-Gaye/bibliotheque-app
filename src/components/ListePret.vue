@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-4">
-    <table class="table table-bordered table-hover table-sm">
+    <table class="table table-bordered table-sm">
       <thead>
         <tr>
           <th>#</th>
@@ -21,12 +21,9 @@
           <td>{{ pret.livre_id }}</td>
           <td>{{ pret.membre_id }}</td>
           <td>
-            <button class="btn btn-danger btn-sm" @click="destroy(index)">
-              Supprimer
-            </button>
-            <button class="btn btn-secondary btn-sm" @click="edit(index)">
-              Modifier
-            </button>
+            <button class="btn btn-xs btn-danger" @click="destroy(index)"><ion-icon name="trash"></ion-icon></button>
+            <button class="btn btn-xs btn-primary" @click="edit(index)"><ion-icon name="eyedrop"></ion-icon></button>
+            <button class="btn btn-xs btn-success "><ion-icon name="eye"></ion-icon></button>
           </td>
         </tr>
       </tbody>
@@ -55,7 +52,3 @@ const edit = (index) => {
   emit("onEdit", index);
 };
 </script>
-
-<style scoped>
-/* Ajoutez des styles ici si nécessaire */
-</style>
