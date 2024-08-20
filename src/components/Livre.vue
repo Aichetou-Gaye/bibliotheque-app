@@ -2,7 +2,7 @@
 import ListeLivre from './ListeLivre.vue';
 import AjoutLivre from './AjoutLivre.vue';
 import ModifierLivre from './ModifierLivre.vue';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
 const livres = ref([
   {title: "Le Petit Prince",author: "Antoine de Saint-Exupéry",
