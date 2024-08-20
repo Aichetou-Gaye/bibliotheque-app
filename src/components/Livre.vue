@@ -2,44 +2,20 @@
 import ListeLivre from './ListeLivre.vue';
 import AjoutLivre from './AjoutLivre.vue';
 import ModifierLivre from './ModifierLivre.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const livres = ref([
-{
-  title: "Le Petit Prince",
-  author: "Antoine de Saint-Exupéry",
-  year: 1943,
-  genre: "Littérature jeunesse, conte philosophique"
-},
-{
-  title: "1984",
-  author: "George Orwell",
-  year: 1949,
-  genre: "Dystopie, science-fiction"
-},
-{
-  title: "Les Misérables",
-  author: "Victor Hugo",
-  year: 1862,
-  genre: "Roman historique, roman social"
-},
-{
-  title: "Le Seigneur des Anneaux",
-  author: "J.R.R. Tolkien",
-  year: 1954,
-  genre: "Fantasy épique"
-}
+  {title: "Le Petit Prince",author: "Antoine de Saint-Exupéry",
+  year: 1943,genre: "Littérature jeunesse, conte philosophique"},
+  {title: "1984", author: "George Orwell", year: 1949, genre: "Dystopie, science-fiction"},
+  {title: "Les Misérables", author: "Victor Hugo", year: 1862, genre: "Roman historique, roman social"},
+  {title: "Le Seigneur des Anneaux", author: "J.R.R. Tolkien",year: 1954,genre: "Fantasy épique"}
 ])
 
 const formLivre = ref()
 
 function add(title, author, year, genre) {
-  livres.value.push({
-    title,
-    author,
-    year,
-    genre
-  })
+  livres.value.push({title,author,year,genre})
 }
 
 function remove(index) {
