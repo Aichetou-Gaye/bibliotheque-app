@@ -82,5 +82,8 @@ L'application utilise Vue Router pour gérer la navigation entre les différente
 `deleteMembre` : Pour supprimer un membre.
 
 
-##  Author
+##  Authors
+[Mohamed Bankolé](https://github.com/medbankole97/)
+
 [Aichetou Gaye](https://github.com/Aichetou-Gaye/)
+
