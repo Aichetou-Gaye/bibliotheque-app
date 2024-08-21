@@ -70,6 +70,7 @@ const props = defineProps({
 function destroy(index) {
     emit("onRemove", index);
 };
+
 function edit(index) {
     emit("onEdit", index);
 };

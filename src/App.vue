@@ -6,7 +6,6 @@ import Livres from './components/Livre.vue'
 
 <template>
   <div class="container">
-    <!-- Barre de navigation -->
     <nav class="navbar navbar-expand bg-success text-white text-center">
       <a class="navbar-brand" href="#">Bibliothèque</a>
       <div class="collapse navbar-collapse">
@@ -24,8 +23,8 @@ import Livres from './components/Livre.vue'
       </div>
     </nav>
 
-    <!-- Affiche le composant correspondant à la route -->
-    <router-view></router-view>
+
+    <router-view />
   </div>
 </template>
 
