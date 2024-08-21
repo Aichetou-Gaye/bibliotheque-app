@@ -80,3 +80,10 @@ L'application utilise Vue Router pour gérer la navigation entre les différente
 `editMembre` : Pour modifier un membre existant.
 
 `deleteMembre` : Pour supprimer un membre.
+
+
+##  Authors
+[Mohamed Bankolé](https://github.com/medbankole97/)
+
+[Aichetou Gaye](https://github.com/Aichetou-Gaye/)
+
