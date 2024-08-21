@@ -13,7 +13,6 @@ L'application **Bibliothèque** est un outil de gestion de livres, de membres, e
 ### Prérequis
 - Node.js (version 14.x ou supérieure)
 - Vue.js 3
-- NPM 
 - Bootstrap 5.x (inclus dans le projet)
 
 ### Étapes d'installation
@@ -45,10 +44,7 @@ L'application **Bibliothèque** est un outil de gestion de livres, de membres, e
     ```bash
     npm run dev
     ```
-
-  
-
-5. Ouvrez votre navigateur et accédez à `http://localhost:3000` pour voir l'application.
+5. Ouvrez votre navigateur et accédez à `http://localhost:5173/` pour voir l'application, ou saisir l'adresse `192.168.56.1:5173`.
 
 ## Utilisation
 
@@ -61,6 +57,7 @@ L'application **Bibliothèque** est un outil de gestion de livres, de membres, e
 L'application utilise Vue Router pour gérer la navigation entre les différentes sections. Les routes sont définies dans le fichier `router/index.js` et incluent :
 - `/`: Vue d'accueil affichant les membres.
 - `/pret`: Vue affichant la gestion des prêts.
+- `/livre`: vue affichant la gestion des livres.
 
 ## Composants
 
@@ -83,6 +80,7 @@ L'application utilise Vue Router pour gérer la navigation entre les différente
 
 
 ##  Authors
+
 [Mohamed Bankolé](https://github.com/medbankole97/)
 
 [Aichetou Gaye](https://github.com/Aichetou-Gaye/)
