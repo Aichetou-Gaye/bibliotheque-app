@@ -7,8 +7,6 @@ import Livre from '../components/Livre.vue';
 const routes = [
   { path: '/', component: Membre },
   { path: '/pret', component: Pret },
-  
-  // Ajoutez une route pour le composant Livre si nécessaire
   { path: '/livre', component: Livre }
 ];
 
