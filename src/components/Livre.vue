@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container  mt-5">
     <h1 class="text-center border-bottom mb-2">Gestion des livres:</h1>
 
     <AjoutLivre class="border-bottom pb-4" @on-add="add" ref="formLivre"/>

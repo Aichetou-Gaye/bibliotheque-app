@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="text-center">Gestion des Membres :</h1>
+  <div class="mt-5">
+    <h1 class="text-center pb-4">Gestion des Membres :</h1>
     <AjouterMembre class="border-bottom pb-4" @on-add="add" ref="formComponent" />
     <ListeMembre :membres="membres" class="mt-4" @on-remove="remove" @on-edit="edit" />
     <ModifierMembre :membre="selectedMembre" @on-update="update" @on-cancel="cancel" />

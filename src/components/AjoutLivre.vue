@@ -22,7 +22,7 @@
                 <label for="genre" class="form-label">Genre</label>
                 <input type="text" class="form-control form-control-sm" name="genre" id="genre" v-model="genre" required>
             </div>
-            <button type="submit" class="btn mt-6 btn-primary col-md-4">Valider</button>
+            <button type="submit" class="btn mt-5 btn-primary col-md-4">Valider</button>
         </form>
     </div>
 
