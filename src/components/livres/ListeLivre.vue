@@ -40,12 +40,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" v-for="(livre, index) in livres" :key="index">
-                        <p>{{ index + 1 }}</p>
-                        <p>{{ livre.isbn }}</p>
-                        <p>{{ livre.title }}</p>
-                        <p>{{ livre.author }}</p>
-                        <p>{{ livre.year }}</p>
-                        <p>{{ livre.genre }}</p>
+                        <p>N° identifiant : {{ index + 1 }}</p>
+                        <p>ISBN : {{ livre.isbn }}</p>
+                        <p>Titre: {{ livre.title }}</p>
+                        <p>Auteur : {{ livre.author }}</p>
+                        <p>Année de publication : {{ livre.year }}</p>
+                        <p>Genre : {{ livre.genre }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -70,6 +70,7 @@ const props = defineProps({
 function destroy(index) {
     emit("onRemove", index);
 };
+
 function edit(index) {
     emit("onEdit", index);
 };
