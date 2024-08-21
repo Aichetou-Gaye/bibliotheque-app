@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h4>Ajoutez un membre : </h4>
     <form class="row gx-3 gy-2 align-items-center" @submit.prevent="onSubmit">
       <div class="col-sm-3">
         <label for="prenom">Prénom</label>
@@ -20,7 +21,7 @@
       </div>
 
       <div class="col-auto">
-        <button type="submit" class="btn btn-sm mt-4 btn-primary">
+        <button type="submit" class="btn mt-4 btn-primary">
           Valider
         </button>
       </div>

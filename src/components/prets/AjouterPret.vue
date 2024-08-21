@@ -1,29 +1,30 @@
 <template>
   <div class="container mt-4">
+    <h4>Ajoutez un prêt : </h4>
     <form class="row gx-3 gy-2 align-items-center" @submit.prevent="onSubmit">
-      <div class="col-sm-2">
+      <div class="col-md-2">
         <label for="id_pret" class="form-label">ID Prêt</label>
         <input type="number" class="form-control" id="id_pret" v-model.number="idPret" required />
       </div>
-      <div class="col-sm-2">
+      <div class="col-md-2">
         <label for="date_pret" class="form-label">Date du prêt</label>
         <input type="date" class="form-control" id="date_pret" v-model="datePret" required />
       </div>
-      <div class="col-sm-2">
+      <div class="col-md-3">
         <label for="date_retour_prevue" class="form-label">Date de retour prévue</label>
         <input type="date" class="form-control" id="date_retour_prevue" v-model="dateRetourPrevue" required />
       </div>
-      <div class="col-sm-2">
+      <div class="col-md-2">
         <label for="livre_id" class="form-label">ID Livre</label>
         <input type="number" class="form-control" id="livre_id" v-model.number="livreId" required />
       </div>
-      <div class="col-sm-2">
+      <div class="col-md-2">
         <label for="membre_id" class="form-label">ID Membre</label>
         <input type="number" class="form-control" id="membre_id" v-model.number="membreId" required />
       </div>
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary mt-4">
-          Ajouter
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary col-md-4">
+          Valider
         </button>
       </div>
     </form>

@@ -23,7 +23,7 @@
           <td>
             <button class="btn btn-xs btn-danger" @click="destroy(index)"><ion-icon name="trash"></ion-icon></button>
             <button class="btn btn-xs btn-primary" @click="edit(index)"><ion-icon name="eyedrop"></ion-icon></button>
-            <button class="btn btn-xs btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><ion-icon
+            <button class="btn btn-xs btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="view(pret)"><ion-icon
                 name="eye"></ion-icon></button>
           </td>
         </tr>
@@ -36,12 +36,11 @@
             <h5 class="modal-title text-danger" id="exampleModalLabel">Informations du livre</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body" v-for="(pret, index) in prets" :key="index">
-            <p>N° identifiant : {{ index + 1 }}</p>
-            <p>Date du prêt : {{ pret.date_pret }}</p>
-            <p>Date du retour : {{ pret.date_retour_prevue }}</p>
-            <p>Livre emprunté :{{ pret.livre_id }}</p>
-            <p>Id membre : {{ pret.membre_id }}</p>
+          <div class="modal-body">
+            <p>Date du prêt : {{ pretShow?.date_pret}}</p>
+            <p>Date du retour : {{ pretShow?.date_retour_prevue }}</p>
+            <p>Livre emprunté :{{ pretShow?.livre_id }}</p>
+            <p>Id membre : {{ pretShow?.membre_id }}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -53,7 +52,7 @@
 </template>
 
 <script setup>
-import { defineEmits, defineProps } from "vue";
+import { defineEmits, defineProps, ref } from "vue";
 
 const emit = defineEmits(["onRemove", "onEdit"]);
 
@@ -72,4 +71,10 @@ const destroy = (index) => {
 const edit = (index) => {
   emit("onEdit", index);
 };
+
+const pretShow = ref(null)
+
+function view(pret) {
+  pretShow.value = pret
+}
 </script>

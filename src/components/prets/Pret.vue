@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-4">
-    <h1 class="text-center">Gestion des Prêts</h1>
+    <h1 class="text-center border-bottom mb-2">Gestion des prêts:</h1>
     <AjouterPret class="border-bottom pb-4" @onAdd="add" ref="formComponent"/>
     <ListePret :prets="prets" class="mt-4" @onRemove="remove" @onEdit="edit" />
     <ModifierPret :pret = "selectedPret" @onUpdate="update" @onCancel="cancel" />

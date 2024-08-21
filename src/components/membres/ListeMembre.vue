@@ -23,7 +23,7 @@
           <td>
             <button class="btn btn-xs btn-danger" @click="destroy(index)"><ion-icon name="trash"></ion-icon></button>
             <button class="btn btn-xs btn-primary" @click="edit(index)"><ion-icon name="eyedrop"></ion-icon></button>
-            <button class="btn btn-xs btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><ion-icon
+            <button class="btn btn-xs btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="view(membre)"><ion-icon
                 name="eye"></ion-icon></button>
           </td>
         </tr>
@@ -37,12 +37,11 @@
             <h5 class="modal-title text-danger" id="exampleModalLabel">Informations du membre</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body" v-for="(membre, index) in membres" :key="index">
-            <p>N° identifiant {{ index + 1 }}</p>
-            <p>Prénom : {{ membre.prenom }}</p>
-            <p>Nom : {{ membre.nom }}</p>
-            <p>Date d'inscription : {{ membre.dateInscription }}</p>
-            <p>N° téléphone : {{ membre.telephone }}</p>
+          <div class="modal-body">
+            <p>Prénom : {{ membreShow?.prenom }}</p>
+            <p>Nom : {{ membreShow?.nom }}</p>
+            <p>Date d'inscription : {{ membreShow?.dateInscription }}</p>
+            <p>N° téléphone : {{ membreShow?.telephone }}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -55,6 +54,8 @@
 
 
 <script setup>
+import { ref } from 'vue';
+
 const emit = defineEmits(["onRemove", "onEdit"]);
 
 const props = defineProps({
@@ -71,4 +72,10 @@ const destroy = (index) => {
 const edit = (index) => {
   emit("onEdit", index);
 };
+
+const membreShow = ref(null)
+
+function view(membre) {
+  membreShow.value = membre
+}
 </script>

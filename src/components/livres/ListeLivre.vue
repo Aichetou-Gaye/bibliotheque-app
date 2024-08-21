@@ -26,7 +26,7 @@
                         <button class="btn btn-xs btn-primary" @click="edit(index)"><ion-icon
                                 name="eyedrop"></ion-icon></button>
                         <button class="btn btn-xs btn-success" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"><ion-icon name="eye"></ion-icon></button>
+                            data-bs-target="#exampleModal" @click="view(livre)"><ion-icon name="eye"></ion-icon></button>
                     </td>
                 </tr>
             </tbody>
@@ -39,13 +39,12 @@
                         <h5 class="modal-title text-danger" id="exampleModalLabel">Informations du livre</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body" v-for="(livre, index) in livres" :key="index">
-                        <p>N° identifiant : {{ index + 1 }}</p>
-                        <p>ISBN : {{ livre.isbn }}</p>
-                        <p>Titre: {{ livre.title }}</p>
-                        <p>Auteur : {{ livre.author }}</p>
-                        <p>Année de publication : {{ livre.year }}</p>
-                        <p>Genre : {{ livre.genre }}</p>
+                    <div class="modal-body">
+                        <p>ISBN : {{ livreShow?.isbn }}</p>
+                        <p>Titre: {{ livreShow?.title }}</p>
+                        <p>Auteur : {{ livreShow?.author }}</p>
+                        <p>Année de publication : {{ livreShow?.year }}</p>
+                        <p>Genre : {{ livreShow?.genre }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
@@ -58,6 +57,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 const emit = defineEmits(["onRemove", "onEdit"]);
 
 const props = defineProps({
@@ -74,6 +75,10 @@ function destroy(index) {
 function edit(index) {
     emit("onEdit", index);
 };
+const livreShow = ref(null)
+function view(livre){
+    livreShow.value = livre
+}
 </script>
 
 
