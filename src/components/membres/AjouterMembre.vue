@@ -7,11 +7,11 @@
         <input type="text" class="form-control" id="prenom" v-model="prenom" required />
       </div>
       <div class="col-sm-3">
-        <label for="nom">Nom</label>
+        <label for="nom">Nom:</label>
         <input type="text" class="form-control" id="nom" v-model="nom" required />
       </div>
       <div class="col-sm-2">
-        <label for="date">Date d'inscription</label>
+        <label for="date">Date d'inscription:</label>
         <input type="date" class="form-control" id="date" v-model="dateInscription" required />
       </div>
 
