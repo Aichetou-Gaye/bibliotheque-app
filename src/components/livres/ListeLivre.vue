@@ -3,7 +3,7 @@
         <table class="table table-bordered table-sm">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
                     <th scope="col">ISBN</th>
                     <th scope="col">Titre</th>
                     <th scope="col">Auteur</th>
@@ -13,17 +13,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(livre, index) in livres" :key="index">
-                    <td>{{ index + 1 }}</td>
+                <tr v-for="livre in store.livres" :key="livre.id">
+                    <td>{{ livre.id}}</td>
                     <td>{{ livre.isbn }}</td>
                     <td>{{ livre.title }}</td>
                     <td>{{ livre.author }}</td>
                     <td>{{ livre.year }}</td>
                     <td>{{ livre.genre }}</td>
                     <td class="col-md-2">
-                        <button class="btn btn-xs btn-danger" @click="destroy(index)"><ion-icon
+                        <button class="btn btn-xs btn-danger" @click="destroy(livre.id)"><ion-icon
                                 name="trash"></ion-icon></button>
-                        <button class="btn btn-xs btn-primary" @click="edit(index)"><ion-icon
+                        <button class="btn btn-xs btn-primary" @click="edit(livre.id)"><ion-icon
                                 name="eyedrop"></ion-icon></button>
                         <button class="btn btn-xs btn-success" data-bs-toggle="modal"
                             data-bs-target="#exampleModal" @click="view(livre)"><ion-icon name="eye"></ion-icon></button>
@@ -57,19 +57,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { useLivrestore } from '@store';
 
-const emit = defineEmits(["onRemove", "onEdit"]);
-
-const props = defineProps({
-    livres: {
-        type: Array,
-        required: true,
-        default: [],
-    },
-})
-function destroy(index) {
-    emit("onRemove", index);
+const store= useLivrestore()
+function destroy(store) {
+    
 };
 
 function edit(index) {
