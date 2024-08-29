@@ -78,6 +78,12 @@ L'application utilise Vue Router pour gérer la navigation entre les différente
 
 `deleteMembre` : Pour supprimer un membre.
 
+## Mis à jour
+
+- Mis à jour de l'accueil, en ajoutant un bouton d'appel en action, un backgroud et un lien de retour à la page principale;
+- Intégration approfondie de vue-router, facilitant ainsi la navigation entre les pages et aussi le développement du code
+- Integration de pinia dans le code pour la gestion des etats;
+- Un bouton au dessus des liste pour permettre d'ajouter un nouveau element à la liste
 
 ##  Authors
 
