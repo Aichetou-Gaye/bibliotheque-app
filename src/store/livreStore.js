@@ -37,7 +37,7 @@ export const useLivrestore = defineStore("livrestore", {
         genre: "Fantasy épique",
       },
     ],
-    id: 4,
+    id: 5,
     formulaire: reactive({
       isbn: null,
       title: null,
@@ -66,23 +66,23 @@ export const useLivrestore = defineStore("livrestore", {
       });
     },
     editLivre(id, newLivre) {
-      const findIndex = this.livres.findIndex((l) => l.id === id);
-      if (findIndex !== -1) {
-        this.livres[findIndex] = {
+      const findMe = this.livres.findIndex((l) => l.id === id);
+      if (findMe !== -1) {
+        this.livres[findMe] = {
           ...id,
           newLivre,
         };
       }
     },
     showLivre(id) {
-      const findIndex = this.livres.findIndex((l) => l.id === id);
-      if (findIndex !== -1) {
-        this.current = this.livres[findIndex];
+      const findMe = this.livres.findIndex((l) => l.id === id);
+      if (findMe !== -1) {
+        this.current = this.livres[findMe];
       }
     },
     removeLivre(id) {
-      const findIndex = this.livres.findIndex((l) => l.id === id);
-      if (findIndex !== -1) {
+      const findMe = this.livres.findIndex((l) => l.id === id);
+      if (findMe !== -1) {
         this.livres = this.livres.filter((l) => l.id !== id);
       }
     },

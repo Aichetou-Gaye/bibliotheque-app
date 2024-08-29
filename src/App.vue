@@ -1,7 +1,8 @@
 <script setup>
-import Membre from './components/membres/Membre.vue'
+import Livre from './components/livres/Livre.vue';
+import Membre from '@components/membres/Membre.vue'
 import Pret from './components/prets/Pret.vue'
-import Livres from './components/livres/Livre.vue'
+
 </script>
 <template>
   <div class="container-fluid p-0">
@@ -10,7 +11,7 @@ import Livres from './components/livres/Livre.vue'
       <div class="collapse navbar-collapse d-flex justify-content-end">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link text-white" to="/">Membres</router-link>
+            <router-link class="nav-link text-white" to="/membre">Membres</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link text-white" to="/pret">Prêts</router-link>
@@ -21,7 +22,6 @@ import Livres from './components/livres/Livre.vue'
         </ul>
       </div>
     </nav>
-
 
     <router-view />
   </div>
