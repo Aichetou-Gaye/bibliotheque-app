@@ -10,7 +10,10 @@ import Livres from './components/livres/Livre.vue'
       <div class="collapse navbar-collapse d-flex justify-content-end">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link text-white" to="/">Membres</router-link>
+            <router-link class="nav-link text-white" to="/">Accueil</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link text-white" to="/membre">Membres</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link text-white" to="/pret">Prêts</router-link>
