@@ -4,23 +4,23 @@
         <form class="row gx-3 gy-2 align-items-center" @submit.prevent="onSubmit">
             <div class="col-md-2">
                 <label for="isbn" class="form-label">ISBN</label>
-                <input type="text" class="form-control form-control-sm" name="isbn" id="isbn" v-model="isbn" required>
+                <input type="text" class="form-control form-control-sm" name="isbn" id="isbn" v-model="form.isbn" required>
             </div>
             <div class="col-md-2">
                 <label for="title" class="form-label">Titre</label>
-                <input type="text" class="form-control form-control-sm" name="titre" id="title" v-model="title" required>
+                <input type="text" class="form-control form-control-sm" name="titre" id="title" v-model="form.title" required>
             </div>
             <div class="col-md-3">
                 <label for="author" class="form-label">Auteur</label>
-                <input type="text" class="form-control form-control-sm" name="auteur" id="author" v-model="author" required>
+                <input type="text" class="form-control form-control-sm" name="auteur" id="author" v-model="form.author" required>
             </div>
             <div class="col-md-3">
                 <label for="year" class="form-label">Année Publication</label>
-                <input type="date" class="form-control form-control-sm" name="annee" id="year" v-model="year" required>
+                <input type="date" class="form-control form-control-sm" name="annee" id="year" v-model="form.year" required>
             </div>
             <div class="col-md-2">
                 <label for="genre" class="form-label">Genre</label>
-                <input type="text" class="form-control form-control-sm" name="genre" id="genre" v-model="genre" required>
+                <input type="text" class="form-control form-control-sm" name="genre" id="genre" v-model="form.genre" required>
             </div>
             <div class="col-md-3">
                 <button type="submit" class="btn btn-sm btn-primary">Valider</button>
@@ -32,36 +32,20 @@
 </template>
 
 <script setup>
-import { ref, defineExpose } from 'vue'
-const emit = defineEmits(["onAdd"]);
 
-const isbn = ref("")
-const title = ref("")
-const author = ref("")
-const year = ref("")
-const genre = ref("")
+import { ref, defineExpose } from 'vue'
+import { useLivrestore } from '@store';
+
+const store = useLivrestore()
+const form = store.formulaire
+
 
 function onSubmit() {
-    emit("onAdd", isbn.value, title.value, author.value, year.value, genre.value);
-
-    isbn.value = ""
-    title.value = ""
-    author.value = ""
-    year.value = ""
-    genre.value = ""
+    if(form.isbn && form.title && form.author && form.year && form.genre) {
+        store.addLivre()
+    }
 }
 
-function edit(livre) {
-    isbn.value = livre.isbn
-    title.value = livre.title
-    author.value = livre.author
-    year.value = livre.year
-    genre.value = livre.genre
-}
-
-defineExpose({
-    edit,
-})
 </script>
 
 
