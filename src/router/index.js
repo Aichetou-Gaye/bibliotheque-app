@@ -62,7 +62,7 @@ const routes = [
     name: "pret-neuf",
     component: AddP,
   },
-];
+]
 
 const router = createRouter({
   history: createWebHistory(),

@@ -11,6 +11,9 @@ import Pret from './components/prets/Pret.vue'
       <div class="collapse navbar-collapse d-flex justify-content-end">
         <ul class="navbar-nav">
           <li class="nav-item">
+            <router-link class="nav-link text-white" to="/">Accueil</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link text-white" to="/membre">Membres</router-link>
           </li>
           <li class="nav-item">
